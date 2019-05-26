@@ -7,7 +7,7 @@ file_path_names, corresponding to a flat list of the absolute path and
 name of files, and that returns a list of groups of duplicate files.
 """
 
-from generate_hash import generate_hash
+from .generate_hash import generate_hash
 
 
 def group_files_by_checksum(file_path_names):
