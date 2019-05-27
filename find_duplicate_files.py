@@ -25,7 +25,7 @@ def _print_result(result):
     object
         print object with attribute 'end=""'.
     """
-    return print(dumps(result) + "\n" if result else "", end="")
+    return print(dumps(result, indent=4) + "\n" if result else "", end="")
 
 
 def main():
