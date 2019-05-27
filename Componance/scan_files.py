@@ -10,7 +10,7 @@ from os.path import expanduser, realpath, islink, join
 from os import walk
 
 
-def get_full_path(file):
+def _get_full_path(file):
     """Get full path of file.
 
     This function retrieves full path of the given file.
@@ -50,7 +50,7 @@ def scan_files(path):
         a flat list of files' absolute path name scanned recursively from
         specified path.
     """
-    path = get_full_path(path)
+    path = _get_full_path(path)
     files_list = []
     for direc, subdir, files in walk(path):
         del subdir

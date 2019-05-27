@@ -6,13 +6,34 @@ root directory to start scanning for duplicate files.
 """
 
 from json import dumps
-from Componance import get_arguments, scan_files, find_duplicate_files
+from Componance import (get_arguments, scan_files,
+                        find_duplicate_files, group_same_files)
+
+
+def _print_result(result):
+    """Print result.
+
+    This function print a non empty list in Json format.
+
+    Parameters
+    ----------
+    result : list
+        a nested list of group of duplicate files.
+
+    Returns
+    -------
+    object
+        print object with attribute 'end=""'.
+    """
+    return print(dumps(result) + "\n" if result else "", end="")
 
 
 def main():
     """main flow"""
-    result = find_duplicate_files(scan_files(get_arguments()))
-    return print(dumps(result) if result else "", end="")
+    file_path_names, performance = get_arguments()
+    if performance:
+        return _print_result(group_same_files(scan_files(file_path_names)))
+    return _print_result(find_duplicate_files(scan_files(file_path_names)))
 
 
 if __name__ == "__main__":

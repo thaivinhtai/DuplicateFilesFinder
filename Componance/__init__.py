@@ -8,3 +8,4 @@ from .group_files_by_size import group_files_by_size
 from .generate_hash import generate_hash
 from .group_files_by_checksum import group_files_by_checksum
 from .find_duplicate_files import find_duplicate_files
+from .optimize_performance import group_same_files

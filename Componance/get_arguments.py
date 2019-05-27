@@ -23,4 +23,6 @@ def get_arguments():
                         help=("accepts one mandatory argument" +
                               "that identifies the root directory" +
                               "to start scanning for duplicate files"))
-    return parser.parse_args().path
+    parser.add_argument('--performance', action='store_true',
+                        help='find duplicate files in Performance mode.')
+    return parser.parse_args().path, parser.parse_args().performance
